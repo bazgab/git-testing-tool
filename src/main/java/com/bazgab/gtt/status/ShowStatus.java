@@ -1,4 +1,4 @@
-package com.bazgab.status;
+package com.bazgab.gtt.status;
 
 
 import org.eclipse.jgit.api.Git;
@@ -8,7 +8,7 @@ import org.eclipse.jgit.lib.Repository;
 
 import java.io.IOException;
 
-import static com.bazgab.repositories.FindRepository.openJGitRepository;
+import static com.bazgab.gtt.repositories.FindRepository.openJGitRepository;
 
 
 public class ShowStatus {
@@ -20,6 +20,7 @@ public class ShowStatus {
                 Status status = git.status().call();
                 System.out.println("=================================================================================================================");
                 System.out.println("Running Tests on files with Modified Status...");
+                System.out.println("=================================================================================================================");
                 System.out.println("Modified: " + status.getModified());
                 System.out.println("=================================================================================================================");
 

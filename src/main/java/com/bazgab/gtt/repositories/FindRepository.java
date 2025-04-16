@@ -1,4 +1,4 @@
-package com.bazgab.repositories;
+package com.bazgab.gtt.repositories;
 
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;

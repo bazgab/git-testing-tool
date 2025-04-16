@@ -1,4 +1,4 @@
-package com.bazgab.main;
+package com.bazgab.gtt.main;
 
 
 public class Main {
