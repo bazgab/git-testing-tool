@@ -1,12 +1,13 @@
-package com.bazgab;
+package com.bazgab.main;
+
 
 public class Main {
-    public static void main(String[] args) {
+
+
+    public static void main(String[] args)  {
 
         System.out.println("=======================================================================================");
         System.out.println("Placeholder Entry Point");
         System.out.println("=======================================================================================");
-
-
     }
 }
