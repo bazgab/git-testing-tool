@@ -29,8 +29,7 @@ public class ShowLog {
                     PersonIdent AuthorIdent = rev.getAuthorIdent();
                     String CommitTime = String.valueOf(AuthorIdent.getWhen());
 
-                    System.out.println("Commit: " + rev
-                            + " Name: " + rev.getName()
+                    System.out.println(rev
                             + " Id: " + rev.getId().getName()
                             + " Commited at: " + CommitTime);
                     count++;
@@ -39,10 +38,6 @@ public class ShowLog {
 
 
                 System.out.println("Had " + count + " commits overall in repository");
-
-                System.out.println();
-                System.out.println("---------------------");
-                System.out.println("Local Commit Graph");
 
                 }
             }
