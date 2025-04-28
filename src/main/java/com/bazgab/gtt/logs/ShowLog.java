@@ -2,6 +2,7 @@ package com.bazgab.gtt.logs;
 
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.lib.PersonIdent;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.revwalk.RevCommit;
 
@@ -11,34 +12,27 @@ import static com.bazgab.gtt.repositories.FindRepository.openJGitRepository;
 
 public class ShowLog {
 
-    public static String ConvertSectoDay(int n) {
-        int day = n / (24 * 3600);
 
-        n = n % (24 * 3600);
-        int hour = n / 3600;
-
-        n %= 3600;
-        int minutes = n / 60 ;
-
-        n %= 60;
-        int seconds = n;
-
-        return STR."\{day} days \{hour} hours \{minutes} minutes \{seconds} seconds ";
-    }
 
     @SuppressWarnings("unused")
     public static void main(String[] args) throws IOException, GitAPIException {
-        
+
         try (Repository repository = openJGitRepository()) {
             try (Git git = new Git(repository)) {
                 Iterable<RevCommit> logs = git.log()
                         .call();
                 int count = 0;
+                PersonIdent commitData = new PersonIdent(repository);
+                System.out.println(commitData);
+
                 for (RevCommit rev : logs) {
+                    PersonIdent AuthorIdent = rev.getAuthorIdent();
+                    String CommitTime = String.valueOf(AuthorIdent.getWhen());
+
                     System.out.println("Commit: " + rev
                             + " Name: " + rev.getName()
                             + " Id: " + rev.getId().getName()
-                            + " Time: " + ConvertSectoDay(rev.getCommitTime()));
+                            + " Commited at: " + CommitTime);
                     count++;
                 }
                 System.out.println("Had " + count + " commits overall on current branch");
