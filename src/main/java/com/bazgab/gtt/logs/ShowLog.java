@@ -34,9 +34,8 @@ public class ShowLog {
                             + " Commited at: " + CommitTime);
                     count++;
                 }
+                // Print out commit count
                 System.out.println("Had " + count + " commits overall on current branch");
-
-
                 System.out.println("Had " + count + " commits overall in repository");
 
                 }
